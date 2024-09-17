@@ -16,7 +16,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 
-const drawerWidth = 280;
+const drawerWidth = 260;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -26,7 +26,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: `-${drawerWidth}px`,
+    // marginLeft: `-${drawerWidth}px`,
     ...(open && {
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.easeOut,
@@ -118,49 +118,6 @@ const Sidebar = ({ children }) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      {/* <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <img src={imglogo} alt="logo" style={{ width: '80px', height: '80px', marginLeft: '10px' }} />
-          <img src={LaborLink2} alt="logo" style={{ width: '300px', height: '40px', marginLeft: '25px' ,marginTop:"15px"}} />
-
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' }, marginLeft: '10px', color: 'black' }}
-          >
-            Labor 
-            <Box component="span" sx={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', color: 'orange' }}>Link</Box>
-          </Typography> */}
-          {/* <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <Box style={{ display: 'flex', alignItems: 'center', marginRight: "30px" }}>
-              <Typography>
-                <p style={{ marginBottom: 0 }}>Hello,</p>
-                <p style={{ marginTop: 0, fontStyle: "italic" }}>{userProfile.name}</p>
-              </Typography>
-              <MenuItem
-                component={Link}
-                to="/logout"
-                sx={{ '&:hover': { backgroundColor: 'transparent' } }}
-              >
-                <IconButton size="large" color="inherit" sx={{ padding: '0', marginLeft: "10px" }}>
-                  <Badge color="error"><LogoutOutlinedIcon /></Badge>
-                </IconButton>
-              </MenuItem>
-            </Box>
-          </Box>
-        </Toolbar>
-      </AppBar> } */}
       {renderMenu}
       <Drawer
         sx={{ width: drawerWidth, flexShrink: 0, '& .MuiDrawer-paper': { width: drawerWidth, boxSizing: 'border-box' ,} }}
@@ -168,13 +125,11 @@ const Sidebar = ({ children }) => {
         anchor="left"
         open= {true}
       >
-        <DrawerHeader>
-          {/* <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton> */}
+        <DrawerHeader sx={{height:"100px",marginRight:"35px"}}>
+          <h1>Travel-Tales</h1>
         </DrawerHeader>
         <List sx={{ padding: 0,marginLeft:"12px", marginTop:"-20px",textAlign: "center", alignItems: "center", justifyContent: "center" }}>
-          {['Dashboard', 'All Post', 'Reviews&Report', 'Chat', 'Log out'].map((text, index) => {
+          {['Dashboard', 'All Post', 'Reviews Report', 'Chat', 'Log out'].map((text, index) => {
             const route = `/${text.toLowerCase().replace(' ', '-')}`;
             return (
               <ListItem
@@ -184,14 +139,14 @@ const Sidebar = ({ children }) => {
                 sx={{
                   marginTop:"6px",
                   '&:hover': {
-                    backgroundColor: 'rgba(252, 177, 112, 0.9)',
+                    backgroundColor: 'rgba(42, 138, 179, 0.7)',
                     borderRadius: '0px',
                     width: 'auto',
                     marginLeft: '20px',
                     borderTopLeftRadius: '8px',
                     borderBottomLeftRadius: '8px',
                   },
-                  backgroundColor: selectedItem === route ? 'rgba(252, 177, 112, 0.9)' : 'inherit'
+                  backgroundColor: selectedItem === route ? 'rgba(42, 138, 179, 0.9)' : 'inherit'
                 }}
               >
                 <ListItemButton>
